@@ -1,10 +1,6 @@
 example_dict = {"nodes":[{"name":"B","outputs":{},"isInitialState":False},{"name":"A","outputs":{},"isInitialState":True},{"name":"D","outputs":{},"isInitialState":False},{"name":"C","outputs":{},"isInitialState":False}],"links":[{"name":"e1","source":"A","dest":"B"},{"name":"e2","source":"A","dest":"C"},{"name":"e3","source":"C","dest":"D"},{"name":"e5","source":"D","dest":"A"},{"name":"e4","source":"D","dest":"B"},{"name":"e6","source":"B","dest":"A"}]}
 verilog_code = ""
 
-def parse():
-    # TODO get input json and parse the output
-    pass
-
 def to_verilog(input_fsm):
     body = get_body(input_fsm=input_fsm)
     registers = [node["name"] for node in input_fsm["nodes"]]
