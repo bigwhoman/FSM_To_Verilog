@@ -66,4 +66,8 @@ end
 
 
 if __name__ == "__main__":
-    print(to_verilog(input_fsm=example_dict))
+    verilog_code = to_verilog(input_fsm=example_dict)
+    print(verilog_code)
+    file = open("./FSM.v","w+")
+    file.write(verilog_code)
+    file.close()
