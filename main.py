@@ -1,4 +1,7 @@
-example_dict = {"nodes":[{"name":"B","outputs":{},"isInitialState":False},{"name":"A","outputs":{},"isInitialState":True},{"name":"D","outputs":{},"isInitialState":False},{"name":"C","outputs":{},"isInitialState":False}],"links":[{"name":"e1","source":"A","dest":"B"},{"name":"e2","source":"A","dest":"C"},{"name":"e3","source":"C","dest":"D"},{"name":"e5","source":"D","dest":"A"},{"name":"e4","source":"D","dest":"B"},{"name":"e6","source":"B","dest":"A"}]}
+example_dict = {"nodes":[{"name":"B","outputs":{},"isInitialState":False},{"name":"A","outputs":{},"isInitialState":True},
+                         {"name":"D","outputs":{},"isInitialState":False},{"name":"C","outputs":{},"isInitialState":False}],
+                "links":[{"name":"e1","source":"A","dest":"B"},{"name":"e2","source":"A","dest":"C"},{"name":"e3","source":"C","dest":"D"}
+                         ,{"name":"e5","source":"D","dest":"A"},{"name":"e4","source":"D","dest":"B"},{"name":"e6","source":"B","dest":"A"}]}
 verilog_code = ""
 
 def to_verilog(input_fsm):
@@ -6,7 +9,7 @@ def to_verilog(input_fsm):
     registers = [node["name"] for node in input_fsm["nodes"]]
     registers = str(",".join(map(str, registers)))
     events    = [event["name"] for event in input_fsm["links"]]
-    events = str(",".join(map(str, events)))
+    events    = str(",".join(map(str, events)))
     base_code = \
 f"""
 module FSM(
